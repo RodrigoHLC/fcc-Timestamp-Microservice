@@ -51,8 +51,8 @@ app.get("/api/:date?", (req, res)=>{
   // --- IF DATE IS A UNIX TIMESTAMP
   else if(reg.test(date)){
     res.json({
-      "unix": date.toString(),
-      "uct": new Date(parseInt(date)).toUTCString()
+      "unix": new Date(parseInt(date)).getTime(),
+      "utc": new Date(parseInt(date)).toUTCString()
     })
   }
   // // --- IF DATE IS DATE STRING
